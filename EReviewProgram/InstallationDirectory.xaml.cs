@@ -23,8 +23,8 @@ namespace EReviewProgram
     public partial class InstallationDirectory : Window
     {
 
-        private string propertiesFile;
-        public string PropertiesFile
+        private static string propertiesFile;
+        public static string PropertiesFile
         {
             get { return propertiesFile; }
         }

@@ -26,19 +26,18 @@ namespace EReviewProgram
             extractFields();
         }
 
+        string folderPath = InstallationDirectory.PropertiesFile + "\\install-assets\\install.properties";
+
         public void editServiceAccountPassword() 
         {
-            //unable to retreat string PropertiesFile from InstallationDirectory class
-            //InstallationDirectory installation = new InstallationDirectory();
-
-            using (StreamReader readFile = new StreamReader(@"C:\\Users\\sebas\\Desktop\\TEST\\install-assets\\install.properties"))
+            using (StreamReader readFile = new StreamReader(folderPath))
             {
                 string searchLine = readFile.ReadLine();
 
                 if (searchLine.Contains("serviceAccountPassword"))
                 {
                     readFile.Close();
-                    using (StreamWriter writeFile = new StreamWriter(@"C:\\Users\\sebas\\Desktop\\TEST\\install-assets\\install.properties"))
+                    using (StreamWriter writeFile = new StreamWriter(folderPath))
                     {
                         string value = "serviceAccountPassword=" + txtServiceAccountPassword.Text + "\nserviceExtAuthEndpoint=";
                         writeFile.WriteLine(value);
@@ -49,7 +48,7 @@ namespace EReviewProgram
 
         public void editServiceExtAuthEndpoint() 
         {
-            using (StreamReader readFile = new StreamReader(@"C:\\Users\\sebas\\Desktop\\TEST\\install-assets\\install.properties"))
+            using (StreamReader readFile = new StreamReader(folderPath))
             {
                 int i = 0;
 
@@ -60,7 +59,7 @@ namespace EReviewProgram
                     {
                         readFile.Close();
                         i++;
-                        using (StreamWriter writeFile = new StreamWriter(@"C:\\Users\\sebas\\Desktop\\TEST\\install-assets\\install.properties"))
+                        using (StreamWriter writeFile = new StreamWriter(folderPath))
                         {
                             string value = "serviceAccountPassword=" + txtServiceAccountPassword.Text + "\nserviceExtAuthEndpoint=" + txtServiceExtAuthEndpoint.Text;
                             writeFile.WriteLine(value);
@@ -76,7 +75,7 @@ namespace EReviewProgram
 
         public void extractFields() 
         {
-            string txtFile = File.ReadAllText(@"C:\\Users\\sebas\\Desktop\\TEST\\install-assets\\install.properties");
+            string txtFile = File.ReadAllText(folderPath);
             int firstPosition = txtFile.IndexOf("\n");
 
             string extractServiceAccountPassword = txtFile.Substring(0, firstPosition);

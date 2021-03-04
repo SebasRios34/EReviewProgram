@@ -14,7 +14,7 @@
             <ColumnDefinition Width="145*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Installation Directory:" HorizontalAlignment="Left" Margin="52,128,0,0" VerticalAlignment="Top" Height="26" Width="122"/>
-        <TextBox x:Name="txtInstallationRoutePath" HorizontalAlignment="Left" Height="23" Margin="54,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="592" Grid.ColumnSpan="2" IsReadOnly="True" TextChanged="txtInstallationRoutePath_TextChanged" Cursor="" Text="C:\c-review\ereview"/>
+        <TextBox x:Name="txtInstallationRoutePath" HorizontalAlignment="Left" Height="23" Margin="54,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="592" Grid.ColumnSpan="2" IsReadOnly="True" TextChanged="txtInstallationRoutePath_TextChanged" Cursor="" Text="C:\ereview"/>
         <Button x:Name="btnInstall" Content="Install" HorizontalAlignment="Left" Margin="26,349,0,0" VerticalAlignment="Top" Width="75" Click="btnInstall_Click" Grid.Column="2" Height="20"/>
         <CheckBox x:Name="cbxMySql" Content="Include bundled MySQL database server." HorizontalAlignment="Left" Margin="52,195,0,0" VerticalAlignment="Top" Height="15" Width="236"/>
         <Button x:Name="btnBrowseFolder" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Margin="26,157,0,0" VerticalAlignment="Top" Width="75" Click="btnBrowseFolder_Click" Height="20"/>
