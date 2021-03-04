@@ -1,0 +1,22 @@
+﻿<Window x:Class="EReviewProgram.ServicesInstalled"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EReviewProgram"
+        mc:Ignorable="d"
+        Title="EReview Program" Height="450" Width="800">
+    <Grid>
+        <Label Content="The following services will be installed into Windows:" HorizontalAlignment="Left" Margin="75,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Apache HTTPD Server: " HorizontalAlignment="Left" Margin="210,139,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tomcat Server: " HorizontalAlignment="Left" Margin="210,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Node Server: " HorizontalAlignment="Left" Margin="210,201,0,0" VerticalAlignment="Top"/>
+        <Label Content="Database Server: " HorizontalAlignment="Left" Margin="210,232,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtApache" HorizontalAlignment="Left" Height="23" Margin="346,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="txtTomcat" HorizontalAlignment="Left" Height="23" Margin="346,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="txtNode" HorizontalAlignment="Left" Height="23" Margin="346,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="txtDatabase" HorizontalAlignment="Left" Height="23" Margin="346,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
+        <Button x:Name="btnConfigure" Content="Configure" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="673,368,0,0" Click="btnConfigure_Click"/>
+
+    </Grid>
+</Window>
