@@ -16,8 +16,8 @@
         <Label Content="Value 7:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,254,0,0"/>
         <Label Content="Value 8:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,285,0,0"/>
         <TextBox x:Name="txtServiceAccountPassword" HorizontalAlignment="Left" Height="23" Margin="221,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479"/>
-        <TextBox x:Name="txtServiceExtAuthEndpoint" HorizontalAlignment="Left" Height="23" Margin="221,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479" Text="http://localhost:4000/api/auth/oa/access"/>
-        <TextBox x:Name="txtValue3" HorizontalAlignment="Left" Height="23" Margin="221,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479"/>
+        <TextBox x:Name="txtServiceExtAuthEndpoint" HorizontalAlignment="Left" Height="23" Margin="221,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479"/>
+        <TextBox x:Name="txtInstallDir" HorizontalAlignment="Left" Height="23" Margin="221,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479"/>
         <TextBox x:Name="txtValue4" HorizontalAlignment="Left" Height="23" Margin="131,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="569"/>
         <TextBox x:Name="txtValue5" HorizontalAlignment="Left" Height="23" Margin="131,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="569"/>
         <TextBox x:Name="txtValue6" HorizontalAlignment="Left" Height="23" Margin="131,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="569"/>
