@@ -161,6 +161,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="ZIPfiles\ereview.zip" />
+    <None Include="ZIPfiles\ereview2.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

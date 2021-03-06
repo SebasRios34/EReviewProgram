@@ -28,19 +28,39 @@ namespace EReviewProgram
             extractInstallationDirectory();
         }
 
+        private static string mainServiceAccountPassword, mainServiceExtAuthEndpoint, mainInstallationDirectory;
+
+        public static string MainServiceAccountPassword 
+        {
+            get { return mainServiceAccountPassword; }
+        }
+
+        public static string MainServiceExtAuthEndpoint 
+        {
+            get { return mainServiceExtAuthEndpoint; }
+        }
+
+        public static string MainInstallationDirectory 
+        {
+            get { return mainInstallationDirectory; }
+        }
+
+        string meantimeFolderPath = @"C:\\ereview\\install-assets\\install.properties";
+        string meantimeEreviewPath = @"C:\\ereview\\install-assets\\properties\\ereview.properties";
         string folderPath = InstallationDirectory.PropertiesFile + "\\install-assets\\install.properties";
         string ereviewPath = InstallationDirectory.PropertiesFile + "\\tomcat\\ereview.properties";
 
         public void editServiceAccountPassword() 
         {
-            using (StreamReader readFile = new StreamReader(folderPath))
+            //change meantimeFolderPath for folderPath after done testing
+            using (StreamReader readFile = new StreamReader(meantimeFolderPath))
             {
                 string searchLine = readFile.ReadLine();
 
                 if (searchLine.Contains("serviceAccountPassword"))
                 {
                     readFile.Close();
-                    using (StreamWriter writeFile = new StreamWriter(folderPath))
+                    using (StreamWriter writeFile = new StreamWriter(meantimeFolderPath))
                     {
                         string value = "serviceAccountPassword=" + txtServiceAccountPassword.Text + "\nserviceExtAuthEndpoint=" + "\ninstallDir=";
                         writeFile.WriteLine(value);
@@ -51,7 +71,8 @@ namespace EReviewProgram
 
         public void editServiceExtAuthEndpoint() 
         {
-            using (StreamReader readFile = new StreamReader(folderPath))
+            //change meantimeFolderPath for folderPath after done testing
+            using (StreamReader readFile = new StreamReader(meantimeFolderPath))
             {
                 int i = 0;
 
@@ -62,7 +83,7 @@ namespace EReviewProgram
                     {
                         readFile.Close();
                         i++;
-                        using (StreamWriter writeFile = new StreamWriter(folderPath))
+                        using (StreamWriter writeFile = new StreamWriter(meantimeFolderPath))
                         {
                             string value = "serviceAccountPassword=" + txtServiceAccountPassword.Text + "\nserviceExtAuthEndpoint=" + txtServiceExtAuthEndpoint.Text + "\ninstallDir=" + InstallationDirectory.PropertiesFile;
                             writeFile.WriteLine(value);
@@ -78,7 +99,8 @@ namespace EReviewProgram
 
         public void editInstallDir() 
         {
-            using (StreamReader readFile = new StreamReader(folderPath))
+            //change meantimeFolderPath for folderPath after done testing
+            using (StreamReader readFile = new StreamReader(meantimeFolderPath))
             {
                 int i = 0;
 
@@ -89,7 +111,7 @@ namespace EReviewProgram
                     {
                         readFile.Close();
                         i++;
-                        using (StreamWriter writeFile = new StreamWriter(folderPath))
+                        using (StreamWriter writeFile = new StreamWriter(meantimeFolderPath))
                         {
                             string value = "serviceAccountPassword=" + txtServiceAccountPassword.Text + "\nserviceExtAuthEndpoint=" + txtServiceExtAuthEndpoint.Text + "\ninstallDir=" + InstallationDirectory.PropertiesFile;
                             writeFile.WriteLine(value);
@@ -102,69 +124,62 @@ namespace EReviewProgram
                 }
             };
         }
-        
-        /*
-        public void searchReplace() 
+
+        public void searchReplace(string newText, string variableToChange, string folderPath, int lineToEdit) 
         {
-            using (StreamReader readFile = new StreamReader(folderPath))
-            {
-                int i = 0;
-
-                while (i == 0) 
-                {
-                    string searchLine = readFile.ReadLine();
-                    if (searchLine.Contains("serviceAccountPassword"))
-                    {
-                        readFile.Close();
-                        i++;
-                        using (StreamWriter writeFile = new StreamWriter(ereviewPath)) 
-                        {
-
-                        }
-                    }
-                }
-            }
+            string[] arrayLine = File.ReadAllLines(folderPath);
+            string text = variableToChange + newText;
+            arrayLine[lineToEdit] = text;
+            File.WriteAllLines(folderPath, arrayLine);
         }
-        */
 
         public void extractServiceAccountPassword() 
         {
+            //change meantimeFolderPath for folderPath after done testing
             string toSearch = @"serviceAccountPassword";
-            string[] lines = File.ReadAllLines(folderPath);
+            string[] lines = File.ReadAllLines(meantimeFolderPath);
             foreach (string line in lines)
             {
                 if (line.Contains(toSearch))
                 {
                     string serviceAccountPassword = line.Remove(0, 23);
                     txtServiceAccountPassword.Text = serviceAccountPassword;
+                    //setting string to global string
+                    mainServiceAccountPassword = serviceAccountPassword;
                 }
             }
         }
 
         public void extractServiceExtAuthEndpoint() 
         {
+            //change meantimeFolderPath for folderPath after done testing
             string toSearch = @"serviceExtAuthEndpoint";
-            string[] lines = File.ReadAllLines(folderPath);
+            string[] lines = File.ReadAllLines(meantimeFolderPath);
             foreach (string line in lines)
             {
                 if (line.Contains(toSearch))
                 {
                     string serviceExtAuthEndpoint = line.Remove(0, 23);
                     txtServiceExtAuthEndpoint.Text = serviceExtAuthEndpoint;
+                    //setting string to global variable
+                    mainServiceExtAuthEndpoint = serviceExtAuthEndpoint;
                 }
             }
         }
 
         public void extractInstallationDirectory()
         {
+            //change meantimeFolderPath for folderPath after done testing
             string toSearch = @"installDir";
-            string[] lines = File.ReadAllLines(folderPath);
+            string[] lines = File.ReadAllLines(meantimeFolderPath);
             foreach (string line in lines)
             {
                 if (line.Contains(toSearch))
                 {
                     string installDir = line.Remove(0, 11);
-                    txtInstallDir.Text = InstallationDirectory.PropertiesFile;
+                    txtInstallDir.Text = installDir;
+                    //setting string to global variable
+                    mainInstallationDirectory = installDir;
                 }
             }
         }
@@ -187,6 +202,8 @@ namespace EReviewProgram
                 editServiceAccountPassword();
                 editServiceExtAuthEndpoint();
                 editInstallDir();
+
+                searchReplace(mainServiceAccountPassword, "serviceAccountPassword=", meantimeEreviewPath, 7);
             }
 
             //ServicesInstalled page = new ServicesInstalled();

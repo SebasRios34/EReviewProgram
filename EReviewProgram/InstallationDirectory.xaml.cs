@@ -70,12 +70,20 @@ namespace EReviewProgram
                 {
                     Directory.CreateDirectory(propertiesFile);
                     MessageBox.Show(propertiesFile);
-                    unZip(@"C:\Users\sebas\source\repos\EReviewProgram\EReviewProgram\ZIPfiles\ereview.zip", PropertiesFile);
+
+                    //home computer directory
+                    //unZip(@"C:\Users\sebas\source\repos\EReviewProgram\EReviewProgram\ZIPfiles\ereview.zip", PropertiesFile);
+
+                    //jose computer directory
+                    unZip(@"C:\Users\Jose Rios\Source\Repos\SebasRios34\EReviewProgram\EReviewProgram\ZIPfiles\ereview2.zip", PropertiesFile);
                 }
                 else 
                 {
                     MessageBox.Show(propertiesFile);
-                    unZip(@"C:\Users\sebas\source\repos\EReviewProgram\EReviewProgram\ZIPfiles\ereview.zip", PropertiesFile);
+                    //unZip(@"C:\Users\sebas\source\repos\EReviewProgram\EReviewProgram\ZIPfiles\ereview.zip", PropertiesFile);
+
+                    unZip(@"C:\Users\Jose Rios\Source\Repos\SebasRios34\EReviewProgram\EReviewProgram\ZIPfiles\ereview2.zip", PropertiesFile);
+
                 }
 
                 InstallationProgress page = new InstallationProgress();
